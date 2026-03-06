@@ -1,24 +1,21 @@
 public class Rectangle {
-    int width = 0;
-    int height = 0;
-    public Rectangle(int width, int height) {
+
+    protected double width;
+    protected double height;
+
+    public Rectangle(double width, double height) {
         this.width = width;
         this.height = height;
     }
 
     @Override
     public boolean equals(Object obj) {
-        
-        if (this == obj) {
-            return true;
+
+        if (obj instanceof Rectangle) {
+            Rectangle other = (Rectangle) obj;
+            return this.width == other.width && this.height == other.height;
         }
 
-        
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        Rectangle other = (Rectangle) obj;
-        return width == other.width && height == other.height;
-
+        return false;
     }
 }
